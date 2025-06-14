@@ -1,0 +1,53 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  background: #000000;
+  color: #FFFFFF;
+}
+
+.container {
+  display: flex;
+  background: #000000;
+}
+
+.left {
+  width: 50%;
+  padding: 100px;
+}
+
+.spacer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.left h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.right {
+  position: sticky;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateY(100%);
+  border: none;
+}
