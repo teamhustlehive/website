@@ -15,14 +15,36 @@
       overflow-x: hidden;
     }
 
+    .progress-container {
+      position: fixed;
+      top: 0;
+      width: 14px;
+      height: 100%;
+      background-color: #111;
+      z-index: 1000;
+      box-shadow: 0 0 15px rgba(135, 206, 250, 0.5);
+    }
+
+    .progress-bar-fill {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 0%;
+      background: #87CEFA;
+      box-shadow: 0 0 20px #87CEFA, 0 0 40px #87CEFA;
+      transition: height 0.1s ease-out;
+    }
+
+    .progress-left { left: 0; }
+    .progress-right { right: 0; }
+
     .container {
       display: flex;
-      background: #000;
     }
 
     .left {
       width: 40%;
-      padding: 100px 40px;
+      padding: 100px 30px;
     }
 
     .spacer {
@@ -59,50 +81,18 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: auto;
-      max-height: 100%;
+      height: 100%;
       object-fit: contain;
       transform: translateY(100%);
       transition: transform 0.25s ease-out;
-      border: none;
-    }
-
-    .progress-container {
-      position: fixed;
-      top: 0;
-      width: 12px;
-      height: 100%;
-      background-color: #111;
-      z-index: 9999;
-      box-shadow: 0 0 15px rgba(135, 206, 250, 0.5);
-    }
-
-    .progress-bar-fill {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 0%;
-      background: #87CEFA;
-      box-shadow: 0 0 20px #87CEFA, 0 0 40px #87CEFA;
-      transition: height 0.1s ease-out;
-    }
-
-    .progress-left {
-      left: 0;
-    }
-
-    .progress-right {
-      right: 0;
     }
   </style>
 </head>
-
 <body>
 
 <div class="progress-container progress-left">
   <div class="progress-bar-fill" id="progress-bar-fill-left"></div>
 </div>
-
 <div class="progress-container progress-right">
   <div class="progress-bar-fill" id="progress-bar-fill-right"></div>
 </div>
