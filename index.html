@@ -58,9 +58,11 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      max-height: 100%;
+      object-fit: contain;
       transform: translateY(100%);
+      transition: transform 0.3s ease-out;
       border: none;
     }
 
@@ -141,10 +143,8 @@
     const scrollY = window.scrollY;
 
     images.forEach((image, index) => {
-      const imageStart = index * sectionHeight;
-      const imageEnd = (index + 1) * sectionHeight;
-
-      let progress = (scrollY - imageStart) / sectionHeight;
+      const imageStart = (index + 1) * sectionHeight; // Delay first image until 2nd spacer
+      const progress = (scrollY - imageStart) / sectionHeight;
 
       if (progress >= 1) {
         image.style.transform = `translateY(0%)`;
@@ -155,7 +155,6 @@
       }
     });
 
-    // Update progress bar height
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = (scrollY / docHeight) * 100;
     document.getElementById("progress-bar-fill-left").style.height = `${progress}%`;
