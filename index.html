@@ -1,54 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Parallax Gallery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
   <style>
-    html, body {
+    body, html {
       margin: 0;
       padding: 0;
       font-family: 'Raleway', sans-serif;
-      background-color: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    .progress-container {
-      position: fixed;
-      top: 0;
-      width: 10px;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 9999;
-    }
-
-    .progress-bar {
-      width: 100%;
-      background: #87CEFA;
-      height: 0%;
-      box-shadow: 0 0 10px #87CEFA, 0 0 20px #87CEFA;
-      transition: height 0.1s ease-out;
-    }
-
-    .left-bar {
-      left: 0;
-    }
-
-    .right-bar {
-      right: 0;
+      background: #000000;
+      color: #FFFFFF;
     }
 
     .container {
       display: flex;
-      flex-direction: row;
+      background: #000000;
     }
 
     .left {
       width: 40%;
-      padding: 100px 40px;
-      box-sizing: border-box;
+      padding: 100px;
     }
 
     .spacer {
@@ -63,9 +39,9 @@
     }
 
     .right {
-      width: 60%;
       position: sticky;
       top: 0;
+      width: 50%;
       height: 100vh;
       overflow: hidden;
     }
@@ -84,21 +60,13 @@
       height: 100%;
       object-fit: cover;
       transform: translateY(100%);
-      transition: transform 0.3s ease;
+      border: none;
     }
   </style>
 </head>
+
 <body>
 
-<!-- Progress Bars -->
-<div class="progress-container left-bar">
-  <div class="progress-bar" id="progressLeft"></div>
-</div>
-<div class="progress-container right-bar">
-  <div class="progress-bar" id="progressRight"></div>
-</div>
-
-<!-- Main Content -->
 <div class="container">
   <div class="left">
     <div class="spacer"><h1>Gallery</h1></div>
@@ -114,43 +82,40 @@
 
   <div class="right">
     <div class="images">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_1883-copy-AE0rxjkgbOCroP1G.jpg" class="image" />
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_3721-copy-YbNJ5k20QkhZlp8K.jpg" class="image" />
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc03298-copy-1-1-mxBX9egwNwuKPr4n.jpg" class="image" />
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc06001-copy-1-YanJaorMpohEexoX.jpg" class="image" />
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_5014-copy-1-YleQ0o36JRFEZ5eM.jpg" class="image" />
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_6763-copy-mk3JMoOKvKIBW9Nj.jpg" class="image" />
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc04216-copy-1-mjEGDo6z73CLvOOv.jpg" class="image" />
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/copy-of-img_3094-copy-1-AzGNzBoPlziLLwlq.jpg" class="image" />
+      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_1883-copy-AE0rxjkgbOCroP1G.jpg" class="image">
+      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_3721-copy-YbNJ5k20QkhZlp8K.jpg" class="image">
+      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc03298-copy-1-1-mxBX9egwNwuKPr4n.jpg" class="image">
+      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc06001-copy-1-YanJaorMpohEexoX.jpg" class="image">
+      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_5014-copy-1-YleQ0o36JRFEZ5eM.jpg" class="image">
+      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_6763-copy-mk3JMoOKvKIBW9Nj.jpg" class="image">
+      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc04216-copy-1-mjEGDo6z73CLvOOv.jpg" class="image">
+      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/copy-of-img_3094-copy-1-AzGNzBoPlziLLwlq.jpg" class="image">
     </div>
   </div>
 </div>
 
 <script>
   const images = document.querySelectorAll('.image');
+  const totalSections = images.length;
   const sectionHeight = window.innerHeight;
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
 
     images.forEach((image, index) => {
-      const start = index * sectionHeight;
-      const end = (index + 1) * sectionHeight;
-      let progress = (scrollY - start) / sectionHeight;
+      const imageStart = index * sectionHeight;
+      const imageEnd = (index + 1) * sectionHeight;
+
+      let progress = (scrollY - imageStart) / sectionHeight;
 
       if (progress >= 1) {
-        image.style.transform = 'translateY(0%)';
+        image.style.transform = translateY(0%);
       } else if (progress <= 0) {
-        image.style.transform = 'translateY(100%)';
+        image.style.transform = translateY(100%);
       } else {
-        image.style.transform = `translateY(${(1 - progress) * 100}%)`;
+        image.style.transform = translateY(${(1 - progress) * 100}%);
       }
     });
-
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (scrollY / docHeight) * 100;
-    document.getElementById('progressLeft').style.height = `${scrolled}%`;
-    document.getElementById('progressRight').style.height = `${scrolled}%`;
   });
 </script>
 
