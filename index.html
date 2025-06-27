@@ -2,12 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Parallax Gallery</title>
+  <title>Animated Gallery FINAL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-
   <style>
     body, html {
       margin: 0;
@@ -15,107 +12,137 @@
       font-family: 'Raleway', sans-serif;
       background: #000000;
       color: #FFFFFF;
+      overflow-x: hidden;
     }
 
-    .container {
+    .section {
+      padding: 80px 20px;
       display: flex;
-      background: #000000;
-    }
-
-    .left {
-      width: 40%;
-      padding: 100px;
-    }
-
-    .spacer {
-      height: 100vh;
-      display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .left h1 {
-      font-size: 3rem;
-      margin: 0;
+    .section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
 
-    .right {
-      position: sticky;
+    .section img {
+      width: 90%;
+      height: auto;
+      max-width: 600px;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .section img.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Progress bar always fully shown */
+    .progress-container {
+      position: fixed;
       top: 0;
-      width: 50%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .images {
-      position: relative;
-      width: 100%;
+      left: 0;
+      width: 20px;
       height: 100%;
+      background-color: #111;
+      z-index: 10;
+      box-shadow: 0 0 15px rgba(135, 206, 250, 0.5);
     }
 
-    .image {
+    .progress-bar-fill {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: translateY(100%);
-      border: none;
+      height: 0%;
+      background: #87CEFA;
+      box-shadow: 0 0 20px #87CEFA, 0 0 40px #87CEFA;
+      transition: height 0.25s ease;
+    }
+
+    @media (max-width: 500px) {
+      .section h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
-  <div class="left">
-    <div class="spacer"><h1>Gallery</h1></div>
-    <div class="spacer"><h1>Headshots</h1></div>
-    <div class="spacer"><h1>Studio Photography</h1></div>
-    <div class="spacer"><h1>Baby Showers</h1></div>
-    <div class="spacer"><h1>Birthdays</h1></div>
-    <div class="spacer"><h1>Weddings</h1></div>
-    <div class="spacer"><h1>Graduations</h1></div>
-    <div class="spacer"><h1>Networking Events</h1></div>
-    <div class="spacer"><h1>Parties & More...</h1></div>
-  </div>
+<div class="progress-container">
+  <div class="progress-bar-fill" id="progress-bar-fill"></div>
+</div>
 
-  <div class="right">
-    <div class="images">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_1883-copy-AE0rxjkgbOCroP1G.jpg" class="image">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_3721-copy-YbNJ5k20QkhZlp8K.jpg" class="image">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc03298-copy-1-1-mxBX9egwNwuKPr4n.jpg" class="image">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc06001-copy-1-YanJaorMpohEexoX.jpg" class="image">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_5014-copy-1-YleQ0o36JRFEZ5eM.jpg" class="image">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_6763-copy-mk3JMoOKvKIBW9Nj.jpg" class="image">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc04216-copy-1-mjEGDo6z73CLvOOv.jpg" class="image">
-      <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/copy-of-img_3094-copy-1-AzGNzBoPlziLLwlq.jpg" class="image">
-    </div>
-  </div>
+<div class="section">
+  <h1>Gallery</h1>
+</div>
+
+<div class="section">
+  <h1>Headshots</h1>
+  <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_1883-copy-AE0rxjkgbOCroP1G.jpg">
+</div>
+
+<div class="section">
+  <h1>Studio Photography</h1>
+  <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_3721-copy-YbNJ5k20QkhZlp8K.jpg">
+</div>
+
+<div class="section">
+  <h1>Baby Showers</h1>
+  <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc03298-copy-1-1-mxBX9egwNwuKPr4n.jpg">
+</div>
+
+<div class="section">
+  <h1>Birthdays</h1>
+  <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc06001-copy-1-YanJaorMpohEexoX.jpg">
+</div>
+
+<div class="section">
+  <h1>Weddings</h1>
+  <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_5014-copy-1-YleQ0o36JRFEZ5eM.jpg">
+</div>
+
+<div class="section">
+  <h1>Graduations</h1>
+  <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/img_6763-copy-mk3JMoOKvKIBW9Nj.jpg">
+</div>
+
+<div class="section">
+  <h1>Networking Events</h1>
+  <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/dsc04216-copy-1-mjEGDo6z73CLvOOv.jpg">
+</div>
+
+<div class="section">
+  <h1>Parties & More...</h1>
+  <img src="https://assets.zyrosite.com/AGB2GxoGJ2f5RajL/copy-of-img_3094-copy-1-AzGNzBoPlziLLwlq.jpg">
 </div>
 
 <script>
-  const images = document.querySelectorAll('.image');
-  const totalSections = images.length;
-  const sectionHeight = window.innerHeight;
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-
-    images.forEach((image, index) => {
-      const imageStart = index * sectionHeight;
-      const imageEnd = (index + 1) * sectionHeight;
-
-      let progress = (scrollY - imageStart) / sectionHeight;
-
-      if (progress >= 1) {
-        image.style.transform = translateY(0%);
-      } else if (progress <= 0) {
-        image.style.transform = translateY(100%);
-      } else {
-        image.style.transform = translateY(${(1 - progress) * 100}%);
+  // IntersectionObserver for reveal animations
+  const images = document.querySelectorAll('.section img');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
       }
     });
+  }, { threshold: 0.3 });
+
+  images.forEach(img => observer.observe(img));
+
+  // Progress bar fill effect
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById("progress-bar-fill").style.height = `${progress}%`;
   });
 </script>
 
