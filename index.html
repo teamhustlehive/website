@@ -62,6 +62,26 @@
       transform: translateY(100%);
       border: none;
     }
+    /* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #87CEFA;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #87CEFA;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #87CEFA #000;
+}
   </style>
 </head>
 
